@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using EmployeeManagementService.Models;
+
 namespace EmployeeManagementService
 {
     public class Program
@@ -9,6 +12,11 @@ namespace EmployeeManagementService
             // Add services to the container.
 
             builder.Services.AddControllers();
+
+            // Add DbContext to the services
+            builder.Services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
@@ -25,7 +33,6 @@ namespace EmployeeManagementService
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
 
             app.MapControllers();
 
