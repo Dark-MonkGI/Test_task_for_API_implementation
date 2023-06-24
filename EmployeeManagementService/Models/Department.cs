@@ -6,6 +6,7 @@
         public string Name { get; set; }
         public bool IsActive { get; set; }
         public DateTime? DeletionDate { get; set; }
-        public ICollection<Employee> Employees { get; set; }
+
+        public ICollection<Employee> Employees { get; set; } // Навигационное свойство
     }
 }

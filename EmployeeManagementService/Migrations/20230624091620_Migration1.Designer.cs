@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EmployeeManagementService.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230618151626_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20230624091620_Migration1")]
+    partial class Migration1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -59,7 +59,7 @@ namespace EmployeeManagementService.Migrations
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("DepartmentId")
+                    b.Property<int?>("DepartmentId")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("DismissalDate")
@@ -89,10 +89,10 @@ namespace EmployeeManagementService.Migrations
 
             modelBuilder.Entity("EmployeeManagementService.Models.EmployeeTask", b =>
                 {
-                    b.Property<int>("EmployeeId")
+                    b.Property<int?>("EmployeeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("TaskId")
+                    b.Property<int?>("TaskId")
                         .HasColumnType("int");
 
                     b.Property<bool>("IsTaskCompleted")
@@ -132,9 +132,7 @@ namespace EmployeeManagementService.Migrations
                 {
                     b.HasOne("EmployeeManagementService.Models.Department", "Department")
                         .WithMany("Employees")
-                        .HasForeignKey("DepartmentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("DepartmentId");
 
                     b.Navigation("Department");
                 });
