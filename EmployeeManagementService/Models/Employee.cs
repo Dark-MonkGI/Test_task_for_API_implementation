@@ -9,10 +9,10 @@
         public DateTime BirthDate { get; set; }
         public DateTime EmploymentDate { get; set; }
         public DateTime? DismissalDate { get; set; }
-        public int? DepartmentId { get; set; } // Foreign key для Department может быть null
+        public int? DepartmentId { get; set; } // Foreign key для Department (может быть null)
 
 
-        public Department Department { get; set; } // Навигационное свойство может быть null
-        public ICollection<EmployeeTask> EmployeeTasks { get; set; } // Навигационное свойство может быть null
+        public Department Department { get; set; } // Навигационное свойство (может быть null)
+        public ICollection<EmployeeTask> EmployeeTasks { get; set; } // Навигационное свойство (может быть null)
     }
 }

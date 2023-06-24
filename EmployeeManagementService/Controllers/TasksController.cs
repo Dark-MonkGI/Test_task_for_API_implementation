@@ -26,8 +26,6 @@ namespace EmployeeManagementService.Controllers
             _context = context;
         }
 
-        // GET: api/Task
-
         /// <summary>
         /// GET: api/Task
         /// Получить список всех заданий
@@ -38,8 +36,6 @@ namespace EmployeeManagementService.Controllers
         {
             return await _context.Tasks.ToListAsync();
         }
-
-
 
         /// <summary>
         /// GET: api/Task/5
@@ -75,7 +71,6 @@ namespace EmployeeManagementService.Controllers
             return CreatedAtAction("GetTask", new { id = task.Id }, task);
         }
 
-
         /// <summary>
         /// DELETE: api/Task/5
         /// Удаление задания
@@ -95,7 +90,6 @@ namespace EmployeeManagementService.Controllers
 
             return NoContent();
         }
-
 
         /// <summary>
         /// POST: api/Task/CompleteTask
